@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Column from "./Column";
+import DeleteCard from "./DeleteCard";
 
 const Board = ({ role }) => {
   const [cards, setCards] = useState([]);
@@ -30,6 +31,7 @@ const Board = ({ role }) => {
           headingColor="text-green-400"
           cards={cards}
           setCards={setCards}
+          role={userRole}
         />
         <Column
           title="Running Low"
@@ -37,6 +39,7 @@ const Board = ({ role }) => {
           headingColor="text-orange-400"
           cards={cards}
           setCards={setCards}
+          role={userRole}
         />
         <Column
           title="Out of Stock"
@@ -44,6 +47,7 @@ const Board = ({ role }) => {
           headingColor="text-red-400"
           cards={cards}
           setCards={setCards}
+          role={userRole}
         />
         {["Jane", "Adam", "GeneralPainter"].includes(userRole) && (
           <DeleteCard setCards={setCards} />

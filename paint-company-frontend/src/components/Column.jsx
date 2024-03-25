@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Card from "./Card";
+import DropIndicator from "./DropIndicator";
+import AddCard from "./AddCard";
 
-const Column = ({ title, headingColor, status, cards, setCards }) => {
+const Column = ({ title, headingColor, status, cards, setCards, role }) => {
   const [active, setActive] = useState(false);
-  const userRole = useContext(RoleContext);
+  const userRole = role;
 
   cards.sort((a, b) => b.count - a.count);
 
@@ -111,7 +114,14 @@ const Column = ({ title, headingColor, status, cards, setCards }) => {
         }`}
       >
         {filteredCards.map((c) => {
-          return <Card key={c._id} {...c} handleDragStart={handleDragStart} />;
+          return (
+            <Card
+              key={c._id}
+              {...c}
+              handleDragStart={handleDragStart}
+              role={userRole}
+            />
+          );
         })}
         <DropIndicator beforeId="-1" status={status} />
         {["Jane", "Adam", "GeneralPainter"].includes(userRole) && (
