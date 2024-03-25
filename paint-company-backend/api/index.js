@@ -28,6 +28,11 @@ const Paint = mongoose.model("Paint", paintSchema, "paint-company-collection");
 app.use(cors());
 app.use(json());
 
+// Placeholder endpoint
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 // Create Paint endpoint
 app.post("/paints", async (req, res) => {
   try {
