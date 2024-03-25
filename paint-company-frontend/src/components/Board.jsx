@@ -11,7 +11,7 @@ const Board = ({ role }) => {
     const fetchPaints = async () => {
       try {
         const response = await axios.get(
-          "https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints"
+          "https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app/paints"
         );
         console.log(response.data);
         setCards(response.data);
