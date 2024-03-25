@@ -80,9 +80,12 @@ const Column = ({ title, headingColor, status, cards, setCards, role }) => {
 
     if (before !== cardId) {
       try {
-        await axios.put(`http://localhost:8080/paints/${cardId}`, {
-          status: newStatus,
-        });
+        await axios.put(
+          `https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints/${cardId}`,
+          {
+            status: newStatus,
+          }
+        );
 
         const updatedCards = cards.map((card) =>
           card._id === cardId ? { ...card, status: newStatus } : card

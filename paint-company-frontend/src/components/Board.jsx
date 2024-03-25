@@ -10,7 +10,9 @@ const Board = ({ role }) => {
   useEffect(() => {
     const fetchPaints = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/paints");
+        const response = await axios.get(
+          "https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints"
+        );
         console.log(response.data);
         setCards(response.data);
       } catch (error) {

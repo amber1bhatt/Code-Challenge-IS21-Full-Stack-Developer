@@ -17,7 +17,9 @@ const DeleteCard = ({ setCards }) => {
     const cardId = e.dataTransfer.getData("cardId");
 
     try {
-      await axios.delete(`http://localhost:8080/paints/${cardId}`);
+      await axios.delete(
+        `https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints/${cardId}`
+      );
 
       // After successful deletion, update the cards state to remove the deleted card
       setCards((previousCards) =>

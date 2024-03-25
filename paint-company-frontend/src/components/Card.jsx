@@ -17,10 +17,13 @@ const Card = ({ title, _id, count, status, handleDragStart, role }) => {
 
   const handleEditSave = async () => {
     try {
-      const response = await axios.put(`http://localhost:8080/paints/${_id}`, {
-        title: editedTitle,
-        count: editedCount,
-      });
+      const response = await axios.put(
+        `https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints/${_id}`,
+        {
+          title: editedTitle,
+          count: editedCount,
+        }
+      );
 
       console.log("Paint updated successfully:", response.data);
       const updatedCount = response.data.count;

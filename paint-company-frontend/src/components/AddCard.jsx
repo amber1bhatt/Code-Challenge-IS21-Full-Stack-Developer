@@ -14,11 +14,14 @@ const AddCard = ({ status, setCards }) => {
     console.log(title, count);
 
     try {
-      const response = await axios.post("http://localhost:8080/paints", {
-        title: title.trim(),
-        count,
-        status,
-      });
+      const response = await axios.post(
+        "https://code-challenge-is-21-full-stack-developer-ab-backend.vercel.app:8080/paints",
+        {
+          title: title.trim(),
+          count,
+          status,
+        }
+      );
 
       const newCard = response.data;
       setCards((previousCards) => [...previousCards, newCard]);
